@@ -1,4 +1,4 @@
-# JamSholat — TempChat (Temporary Chat Room)
+# TempChat (Temporary Chat Room)
 
 Aplikasi temporary chat room berbasis Laravel 13. Room otomatis kadaluarsa setelah 24 jam dan dibersihkan oleh scheduler. Spesifikasi lengkap ada di `.agents/`.
 
