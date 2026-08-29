@@ -1,0 +1,81 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+
+@theme {
+    /* Font (design.md): JetBrains Mono display, Inter body */
+    --font-display: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+    --font-body: 'Inter', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+
+    /* Colors (design.md) */
+    --color-neutral: #161614; /* page foundation */
+    --color-surface: #1d1d1b; /* cards */
+    --color-surface-raised: #242422; /* hover/input bg */
+    --color-primary: #e5e4df; /* headlines & core text */
+    --color-secondary: #7b7a74; /* borders, captions, metadata */
+    --color-tertiary: #5fb5d6; /* single interaction accent */
+    --color-on-tertiary: #161614; /* text on accent */
+    --color-danger: #e5484d; /* status: countdown <1h, leave */
+
+    /* Radius (design.md) */
+    --radius-sm: 3px;
+    --radius-md: 6px;
+    --radius-lg: 10px;
+}
+
+@layer base {
+    body {
+        @apply bg-neutral font-body text-primary antialiased;
+    }
+}
+
+@layer components {
+    .field {
+        @apply w-full rounded-md bg-surface border border-secondary/40 px-4 py-3 text-primary placeholder:text-secondary focus:border-tertiary focus:outline-none;
+    }
+
+    .typing-dot {
+        @apply inline-block h-1.5 w-1.5 rounded-full bg-tertiary opacity-30;
+        animation: typing-blink 1.4s infinite;
+    }
+
+    .typing-dot:nth-child(2) {
+        animation-delay: 0.2s;
+    }
+
+    .typing-dot:nth-child(3) {
+        animation-delay: 0.4s;
+    }
+
+    .message-enter {
+        animation: message-in 0.18s ease-out;
+    }
+}
+
+@keyframes typing-blink {
+    0%,
+    60%,
+    100% {
+        opacity: 0.3;
+        transform: translateY(0);
+    }
+
+    30% {
+        opacity: 1;
+        transform: translateY(-2px);
+    }
+}
+
+@keyframes message-in {
+    from {
+        opacity: 0;
+        transform: translateY(4px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
